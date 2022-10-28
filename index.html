@@ -14,7 +14,9 @@
   <body>
     <div class="w-full h-screen bg-gray-900 flex p-8 space-x-8">
       <div class="w-1/2 flex justify-center items-center p-12">
-        <div class="rounded-lg flex flex-col items-center bg-gray-800 w-full">
+        <div
+          class="max-w-lg rounded-lg flex flex-col items-center bg-gray-800 w-full"
+        >
           <div class="w-full rounded-t-lg p-4 bg-orange">
             <p class="text-center text-color text-white font-bold">
               Where to ?
@@ -62,6 +64,18 @@
       <div class="flex justify-center items-center">
         <div class="relative map bg-gray-300">
           <img class="metro-map" src="imgs/metrof_r.png" />
+          <svg
+            class="points"
+            width="987"
+            height="952"
+            viewBox="18 0 950 952"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g></g>
+
+            <g id="stations"></g>
+          </svg>
         </div>
       </div>
     </div>
