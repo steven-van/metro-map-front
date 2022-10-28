@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <title>Projet Graphe - Metro Map</title>
+  </head>
+  <body>
+    <div class="w-full h-screen bg-gray-900 flex p-8 space-x-8">
+      <div class="w-1/2 flex justify-center items-center p-12">
+        <div class="rounded-lg flex flex-col items-center bg-gray-800 w-full">
+          <div class="w-full rounded-t-lg p-4 bg-orange">
+            <p class="text-center text-color text-white font-bold">
+              Where to ?
+            </p>
+          </div>
+          <div class="w-full px-12 py-8 flex flex-col items-center space-y-6">
+            <div class="w-full space-y-4">
+              <div class="w-full">
+                <label class="text-gray-500 font-bold" for="start">
+                  Start</label
+                >
+                <select
+                  id="start"
+                  class="w-full bg-gray-700 text-white rounded-md focus:outline-none py-2 px-3"
+                >
+                  <option disabled selected value>Departure station</option>
+                </select>
+              </div>
+              <div class="w-full">
+                <label class="text-gray-500 font-bold" for="end"> End </label>
+                <select
+                  id="end"
+                  class="w-full bg-gray-700 text-white rounded-md focus:outline-none py-2 px-3"
+                >
+                  <option disabled selected value>Arrival station</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex justify-center items-center space-x-6">
+              <button
+                class="bg-orange text-white font-bold rounded-lg px-3 py-2"
+              >
+                GO
+              </button>
+              <button
+                onclick="clearSelection()"
+                class="bg-red-500 text-white font-bold rounded-lg px-3 py-2"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <div class="relative map bg-gray-300">
+          <img class="metro-map" src="imgs/metrof_r.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
