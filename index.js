@@ -4,7 +4,6 @@ const fetchStations = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/graphe`);
     const stations = response.data.sommets;
-    console.log(stations);
     let startSelect = document.getElementById("start");
     let endSelect = document.getElementById("end");
 
@@ -29,7 +28,6 @@ const fetchPoints = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/points`);
     points = response.data;
-    console.log(points);
     return points;
   } catch (errors) {
     console.log(errors);
@@ -46,20 +44,14 @@ const clearSelection = () => {
 
 const addPoints = async () => {
   let stations = await fetchPoints();
-  const svgNS = "http://www.w3.org/svg";
+  console.log(stations);
   const container = document.getElementById("stations");
-  for (let i = 0; i < stations.length; i++) {
-    const point = document.createElementNS(svgNS, "circle");
-    point.setAttributeNS(null, "cx", stations[i].x);
-    point.setAttributeNS(null, "су", stations[i].y);
-    point.setAttributeNS(null, "r", 3);
-    point.setAttributeNS(null, "style", "cursor:pointer;");
-    point.setAttributeNS(null, "stroke", "black");
-    point.setAttributeNS(null, "stroke-width", 1);
-    point.setAttributeNS(null, "fill", "white");
-
-    container.appendChild(point);
-  }
+  container.innerHTML = stations
+    .map(
+      (station) =>
+        `<circle cx="${station.x}" cy="${station.y}" r="3" style="cursor:pointer; stroke: black; stroke-width: 1; fill: white;"></circle>`
+    )
+    .join("");
 };
 
 window.addEventListener("load", () => {
