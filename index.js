@@ -44,7 +44,6 @@ const clearSelection = () => {
 
 const addPoints = async () => {
   let stations = await fetchPoints();
-  console.log(stations);
   const container = document.getElementById("stations");
   container.innerHTML = stations
     .map(
@@ -54,7 +53,28 @@ const addPoints = async () => {
     .join("");
 };
 
+const getItinerary = async () => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/itinerary/${startSelectedValue}/${endSelectedValue}`
+    );
+
+    const startSelect = document.getElementById("start");
+    const startSelectedValue =
+      startSelect.options[startSelect.selectedIndex].value;
+    const endSelect = document.getElementById("start");
+    const endSelectedValue = endSelect.options[endSelect.selectedIndex].value;
+
+    const itinerary = response.data;
+    console.log(itinerary);
+  } catch (errors) {
+    console.log(errors);
+  }
+};
+
 window.addEventListener("load", () => {
   fetchStations();
   addPoints();
+  document.getElementById("go").addEventListener("click", getItinerary);
+  document.getElementById("clear").addEventListener("click", clearSelection);
 });
