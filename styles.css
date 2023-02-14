@@ -20,11 +20,11 @@ body {
   border-radius: 10px;
 }
 
-.metro-map {
+#metro-map {
   opacity: 0.5;
 }
 
-.points {
+#points {
   position: absolute;
   top: 0;
   left: 0;

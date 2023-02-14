@@ -60,11 +60,17 @@
               >
                 Clear
               </button>
+              <button
+                id="acpm"
+                class="clear-selection bg-blue-500 text-white font-bold rounded-lg px-3 py-2"
+              >
+                ACPM
+              </button>
             </div>
           </div>
         </div>
         <div class="itinerary w-full flex flex-col items-center space-y-4">
-          <div class="global-infos w-full rounded-lg bg-gray-800 p-4">
+          <div id="global-infos" class="w-full rounded-lg bg-gray-800 p-4">
             <p class="text-gray-500">Estimated time</p>
             <div class="flex justify-between">
               <p class="text-gray-300 font-bold">19:05</p>
@@ -114,9 +120,9 @@
       </div>
       <div class="flex justify-center items-center">
         <div class="relative map bg-gray-300">
-          <img class="metro-map" src="imgs/metrof_r.png" />
+          <img id="metro-map" src="imgs/metrof_r.png" />
           <svg
-            class="points"
+            id="points"
             width="987"
             height="952"
             viewBox="0 0 987 952"
@@ -124,6 +130,7 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
             <g id="stations"></g>
+            <g id="acpm-lines"></g>
           </svg>
         </div>
       </div>
